@@ -5,6 +5,6 @@
       <p class="card-text">{{colleague.score}}</p>
     </div>
     <div class="card-footer">
-      <tc-like-hate (likeOrHateEvent)="traiter($event)"></tc-like-hate>
+      <tc-like-hate (likeOrHateEvent)="traiter($event)" [score]=colleague.score></tc-like-hate>
     </div>
 </div>
