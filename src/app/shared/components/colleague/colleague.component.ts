@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Colleague } from 'src/app/models/colleague';
+import { LikeHate } from 'src/app/models/like-hate';
 
 @Component({
   selector: 'tc-colleague',
@@ -8,10 +9,15 @@ import { Colleague } from 'src/app/models/colleague';
 })
 export class ColleagueComponent {
 
-  @Input() colleague:Colleague = {
+  colleague:Colleague = {
     pseudo:'jean',
-    score: 121,
+    score: 0,
     photo: 'https://www.programme-tv.net/imgre/fit/~2~providerPerson~401f26e0b72ceedc.jpeg/140x140/quality/80/franck-ribery.jpeg'
+  };
+
+  traiter(val :LikeHate) {
+    if (val == LikeHate.LIKE) this.colleague.score += 100;
+    else this.colleague.score -= 100;
   };
 
 }
