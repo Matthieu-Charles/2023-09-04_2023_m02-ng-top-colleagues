@@ -4,7 +4,7 @@ name: Deploy To GitHub Pages
 on:
   push:
     branches:
-      - "Matthieu-Charles"
+      - 'Matthieu-Charles'
 permissions:
   contents: write
 
@@ -12,7 +12,6 @@ jobs:
   build:
     name: Build Angular App
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -57,4 +56,4 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: deploy_dist/2023-09-04_2023_m02-ng-top-colleagues
+          FOLDER: deploy_dist/top-colleagues
