@@ -56,4 +56,4 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: deploy_dist/top-colleagues
+          FOLDER: deploy_dist/2023-09-04_2023_m02-ng-top-colleagues
