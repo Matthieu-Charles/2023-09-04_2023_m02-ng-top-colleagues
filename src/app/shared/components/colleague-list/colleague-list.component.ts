@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Colleague } from './../../../models/colleague';
 import { ScorePipe } from '../../pipes/score.pipe';
+import { Vote } from 'src/app/models/vote';
 
 @Component({
   selector: 'tc-colleague-list',
   templateUrl: './colleague-list.component.html',
 })
 export class ColleagueListComponent {
+
+  @Output() likeOrHateEvent:EventEmitter<Vote> = new EventEmitter<Vote>;
 
   colleaguesArray: Array<Colleague> = [
     {
@@ -40,5 +43,10 @@ export class ColleagueListComponent {
       photo: 'https://img.a.transfermarkt.technology/portrait/header/3226-1683728957.jpg?lm=1'
     },
   ]
+
+  traiterVote(val :Vote){
+    console.log("Dans colleague list : ",val);
+    this.likeOrHateEvent.emit(val);
+  }
 
 }

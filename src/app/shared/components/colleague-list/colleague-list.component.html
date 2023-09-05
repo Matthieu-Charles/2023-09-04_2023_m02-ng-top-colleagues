@@ -1,3 +1,3 @@
 <div class="row row-cols-1 row-cols-md-3 g-4">
-  <tc-colleague *ngFor="let colleague of colleaguesArray" [colleague] = colleague></tc-colleague>
+  <tc-colleague *ngFor="let colleague of colleaguesArray" [colleague] = colleague (likeOrHateEvent)="traiterVote($event)"></tc-colleague>
 </div>

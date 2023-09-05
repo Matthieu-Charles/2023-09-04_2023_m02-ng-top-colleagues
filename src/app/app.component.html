@@ -1,1 +1,9 @@
-<tc-colleague-list></tc-colleague-list>
+<div class="d-flex m-3 ">
+  <div class="w-75">
+    <tc-colleague-list (likeOrHateEvent) ="traiterVote($event)"></tc-colleague-list>
+  </div>
+  <div class="w-25">
+    <tc-voting-history [voteArrayHistory]=voteArray></tc-voting-history>
+  </div>
+</div>
+
