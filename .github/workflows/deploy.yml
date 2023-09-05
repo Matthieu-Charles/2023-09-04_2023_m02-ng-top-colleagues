@@ -5,6 +5,8 @@ on:
   push:
     branches:
       - "Matthieu-Charles"
+permissions:
+  contents: write
 
 jobs:
   build:
