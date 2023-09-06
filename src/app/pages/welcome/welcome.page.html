@@ -1,0 +1,11 @@
+<div class="m-4">
+  <button class="btn btn-outline-primary my-3">Rafraîchir</button>
+  <div class="d-flex">
+    <div class="w-75">
+      <tc-colleague-list (likeOrHateEvent) ="traiterVote($event)"></tc-colleague-list>
+    </div>
+    <div class="w-25">
+      <tc-voting-history [voteArrayHistory]=voteArray></tc-voting-history>
+    </div>
+  </div>
+</div>
