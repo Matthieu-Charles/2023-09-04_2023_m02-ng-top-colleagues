@@ -9,11 +9,7 @@ import { Vote } from 'src/app/models/vote';
 export class WelcomePage {
   voteArray :Array<Vote> = [];
 
-  @Output() vote :EventEmitter<Vote> = new EventEmitter<Vote>();
-
   traiterVote(val :Vote) {
-    this.voteArray.push(val);
-    this.vote.emit(val);
-    console.log(this.vote);
+    this.voteArray.unshift(val);
   }
 }
