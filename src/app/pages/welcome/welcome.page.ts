@@ -8,8 +8,4 @@ import { Vote } from 'src/app/models/vote';
 })
 export class WelcomePage {
   voteArray :Array<Vote> = [];
-
-  traiterVote(val :Vote) {
-    this.voteArray.unshift(val);
-  }
 }

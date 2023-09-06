@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Vote } from '../models/vote';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,12 +9,15 @@ export class VoteService {
 
   constructor() { }
 
-  voteArray :Vote[] = [];
+  private action = new Subject<Vote>();
+
+  get actionObs() {
+    return this.action.asObservable();
+  }
 
   ajouter(vote :Vote){
     console.log(vote);
-    this.voteArray.unshift(vote);
-    console.log(this.voteArray);
+    this.action.next(vote);
   }
 
 }

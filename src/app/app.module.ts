@@ -13,7 +13,8 @@ import { WelcomeModule } from './pages/welcome/welcome.module';
   imports: [
     BrowserModule,
     NgbModule,
-    WelcomeModule
+    WelcomeModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
