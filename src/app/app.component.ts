@@ -9,14 +9,6 @@ import { Vote } from './models/vote';
 export class AppComponent {
   title = 'top-colleagues';
 
-  voteArray :Array<Vote> = [];
 
-  @Output() vote :EventEmitter<Vote> = new EventEmitter<Vote>();
-
-  traiterVote(val :Vote) {
-    this.voteArray.push(val);
-    this.vote.emit(val);
-    console.log(this.vote);
-  }
 
 }
