@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Vote } from 'src/app/models/vote';
+import { VoteService } from 'src/app/providers/vote.service';
 
 @Component({
   selector: 'tc-voting-history',
@@ -8,10 +9,12 @@ import { Vote } from 'src/app/models/vote';
 })
 export class VotingHistoryComponent {
 
-  @Input() voteArrayHistory :Array<Vote> = [];
+  constructor(private voteService :VoteService) {
+  }
+
+  voteArrayHistory :Array<Vote> = this.voteService.voteArray;
 
   supprimer(val :number) {
-    console.log(val)
     this.voteArrayHistory.splice(val, 1);
   }
 }

@@ -17,9 +17,4 @@ export class ColleagueListComponent {
 
   colleaguesArray: Array<Colleague> = this.colleagueService.list();
 
-  traiterVote(val :Vote){
-    console.log("Dans colleague list : ",val);
-    this.likeOrHateEvent.emit(val);
-  }
-
 }

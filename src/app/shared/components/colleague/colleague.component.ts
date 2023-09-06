@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Colleague } from 'src/app/models/colleague';
 import { LikeHate } from 'src/app/models/like-hate';
 import { Vote } from 'src/app/models/vote';
+import { VoteService } from 'src/app/providers/vote.service';
 
 @Component({
   selector: 'tc-colleague',
@@ -10,9 +11,10 @@ import { Vote } from 'src/app/models/vote';
 })
 export class ColleagueComponent {
 
-  @Input() colleague!: Colleague;
+  constructor(private voteService :VoteService){
+  }
 
-  @Output() likeOrHateEvent:EventEmitter<Vote> = new EventEmitter<Vote>;
+  @Input() colleague!: Colleague;
 
   traiter(val :LikeHate) {
     if (val == LikeHate.LIKE) this.colleague.score += 100;
@@ -21,7 +23,7 @@ export class ColleagueComponent {
       colleague: this.colleague,
       vote: val === "LIKE" ? LikeHate.LIKE : LikeHate.HATE
     }
-    this.likeOrHateEvent.emit(vote);
+    this.voteService.ajouter(vote);
   };
 
 }
