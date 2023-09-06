@@ -12,6 +12,6 @@ export class VotingHistoryComponent {
 
   supprimer(val :number) {
     console.log(val)
-    //supprimer dans la liste de vote celle ayant l'id = val
+    this.voteArrayHistory.splice(val, 1);
   }
 }
