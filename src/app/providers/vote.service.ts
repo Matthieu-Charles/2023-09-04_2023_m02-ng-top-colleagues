@@ -12,15 +12,6 @@ export class VoteService {
   private action = new Subject<Vote>();
 
   constructor(private http: HttpClient) {
-
-    this.http.get<Vote[]>('https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/votes')
-      .subscribe(
-        (voteArray) => {
-          for (let vote of voteArray) {
-          }
-        }
-      );
-
   }
 
   get abonner() {
