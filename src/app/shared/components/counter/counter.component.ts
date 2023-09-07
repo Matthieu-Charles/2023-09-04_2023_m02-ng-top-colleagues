@@ -1,7 +1,6 @@
 import { Component, Pipe } from '@angular/core';
 import { Subscription, map } from 'rxjs';
 import { LikeHate } from 'src/app/models/like-hate';
-import { Vote } from 'src/app/models/vote';
 import { VoteService } from 'src/app/providers/vote.service';
 
 @Component({
@@ -11,14 +10,16 @@ import { VoteService } from 'src/app/providers/vote.service';
 })
 export class CounterComponent {
 
-  actionSub:Subscription
+  subscription! :Subscription
 
   voteCounterPlus :number = 0;
   voteCounterMoins :number = 0;
 
   constructor(private voteService: VoteService) {
-    // abonnement du composant aux notifications
-    this.actionSub = this.voteService.actionObs
+  }
+
+  ngOnInit(): void {
+    this.subscription = this.voteService.abonner
     .pipe(
       map(vote => vote.vote)
     ).subscribe(likeHate => {
@@ -27,8 +28,7 @@ export class CounterComponent {
   }
 
   ngOnDestroy() {
-    // désabonnement du composant avant sa destruction
-    this.actionSub.unsubscribe();
+    this.subscription.unsubscribe();
   }
 
 }

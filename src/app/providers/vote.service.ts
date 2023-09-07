@@ -11,12 +11,11 @@ export class VoteService {
 
   private action = new Subject<Vote>();
 
-  get actionObs() {
+  get abonner() {
     return this.action.asObservable();
   }
 
   ajouter(vote :Vote){
-    console.log(vote);
     this.action.next(vote);
   }
 

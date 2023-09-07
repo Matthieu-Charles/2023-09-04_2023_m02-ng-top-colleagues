@@ -11,13 +11,15 @@ import { VoteService } from 'src/app/providers/vote.service';
 })
 export class VotingHistoryComponent {
 
-  actionSub:Subscription
+  subscription! :Subscription
 
   voteArrayHistory :Array<Vote> = [];
 
   constructor(private voteService: VoteService) {
-    // abonnement du composant aux notifications
-    this.actionSub = this.voteService.actionObs
+  }
+
+  ngOnInit(): void {
+    this.subscription! = this.voteService.abonner
     .subscribe(vote => this.voteArrayHistory.unshift(vote))
   }
 
@@ -27,6 +29,6 @@ export class VotingHistoryComponent {
 
   ngOnDestroy() {
     // désabonnement du composant avant sa destruction
-    this.actionSub.unsubscribe();
+    this.subscription.unsubscribe();
   }
 }
