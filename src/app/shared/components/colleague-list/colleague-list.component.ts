@@ -12,14 +12,14 @@ export class ColleagueListComponent {
 
   colleaguesArray: Array<Colleague> = [];
 
-  actionSub :Subscription | undefined;
+  actionSub: Subscription | undefined;
 
-  constructor(private colleagueService :ColleagueService) {
-    this.actionSub = this.colleagueService.list.subscribe(
-      (colleagueArray) => this.colleaguesArray = colleagueArray
+  constructor(private colleagueService: ColleagueService) {
+    this.actionSub = this.colleagueService.abonner.subscribe(
+      (colleague) => this.colleaguesArray.push(colleague)
     )
   }
 
-  @Output() likeOrHateEvent:EventEmitter<Vote> = new EventEmitter<Vote>;
+  @Output() likeOrHateEvent: EventEmitter<Vote> = new EventEmitter<Vote>;
 
 }

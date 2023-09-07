@@ -1,14 +1,13 @@
-
 <div *ngFor="let vote of voteArrayHistory; let i = index">
   <div id="{{i}}" class="card m-2 mt-0" style="max-width: 540px">
     <div class="row g-0">
       <div class="col-md-4">
-        <img src="{{vote.colleague.photo}}" class="img-fluid rounded-start" alt="...">
+        <img src="{{vote.detailedColleague.photo}}" class="img-fluid rounded-start" alt="...">
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title">{{vote.colleague.pseudo}}</h5>
-          <p class="card-text">{{vote.vote == 'LIKE'? 100 : -100}}</p>
+          <h5 class="card-title">{{vote.detailedColleague.pseudo}}</h5>
+          <p class="card-text">{{vote.likeHate == 'LIKE'? 100 : -100}}</p>
         </div>
       </div>
       <button class="btn btn-primary" (click)="supprimer(i)">Supprimer</button>

@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Subscription, map } from 'rxjs';
 import { LikeHate } from 'src/app/models/like-hate';
 import { Vote } from 'src/app/models/vote';
+import { VoteRetour } from 'src/app/models/vote-retour';
 import { VoteService } from 'src/app/providers/vote.service';
 
 @Component({
@@ -11,19 +12,19 @@ import { VoteService } from 'src/app/providers/vote.service';
 })
 export class VotingHistoryComponent {
 
-  subscription! :Subscription
+  subscription!: Subscription
 
-  voteArrayHistory :Array<Vote> = [];
+  voteArrayHistory: Array<VoteRetour> = [];
 
   constructor(private voteService: VoteService) {
   }
 
   ngOnInit(): void {
     this.subscription! = this.voteService.abonner
-    .subscribe(vote => this.voteArrayHistory.unshift(vote))
+      .subscribe(vote => this.voteArrayHistory.unshift(vote))
   }
 
-  supprimer(val :number) {
+  supprimer(val: number) {
     this.voteArrayHistory.splice(val, 1);
   }
 

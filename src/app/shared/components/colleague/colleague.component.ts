@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Colleague } from 'src/app/models/colleague';
 import { LikeHate } from 'src/app/models/like-hate';
-import { Vote } from 'src/app/models/vote';
 import { VoteService } from 'src/app/providers/vote.service';
 
 @Component({
@@ -11,19 +11,30 @@ import { VoteService } from 'src/app/providers/vote.service';
 })
 export class ColleagueComponent {
 
-  constructor(private voteService :VoteService){
-  }
-
   @Input() colleague!: Colleague;
 
-  traiter(val :LikeHate) {
-    if (val == LikeHate.LIKE) this.colleague.score += 100;
-    else this.colleague.score -= 100;
-    let vote :Vote = {
+  subscription!: Subscription;
+
+  constructor(private voteService: VoteService) {
+  }
+
+  ngOninit(): void {
+    this.subscription = this.voteService.abonner.subscribe(
+      voteRetour => {
+        this.colleague.score = voteRetour.score;
+      }
+    )
+  }
+
+  traiter(val: LikeHate) {
+    console.log("val dans colleagueComponent : ", val);
+
+    this.voteService.ajouterUnNouveauVote({
       colleague: this.colleague,
-      vote: val === "LIKE" ? LikeHate.LIKE : LikeHate.HATE
-    }
-    this.voteService.ajouter(vote);
+      vote: val
+    }).subscribe(
+      voteRetour => this.colleague.score = voteRetour.score
+    );
   };
 
 }

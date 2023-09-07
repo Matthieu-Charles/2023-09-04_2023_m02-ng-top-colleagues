@@ -10,21 +10,21 @@ import { VoteService } from 'src/app/providers/vote.service';
 })
 export class CounterComponent {
 
-  subscription! :Subscription
+  subscription!: Subscription
 
-  voteCounterPlus :number = 0;
-  voteCounterMoins :number = 0;
+  voteCounterPlus: number = 0;
+  voteCounterMoins: number = 0;
 
   constructor(private voteService: VoteService) {
   }
 
   ngOnInit(): void {
     this.subscription = this.voteService.abonner
-    .pipe(
-      map(vote => vote.vote)
-    ).subscribe(likeHate => {
-      likeHate == LikeHate.LIKE? this.voteCounterPlus++ : this.voteCounterMoins++ ;
-    })
+      .pipe(
+        map(vote => vote.likeHate)
+      ).subscribe(likeHate => {
+        likeHate == LikeHate.LIKE ? this.voteCounterPlus++ : this.voteCounterMoins++;
+      })
   }
 
   ngOnDestroy() {
