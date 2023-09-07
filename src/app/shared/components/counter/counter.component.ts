@@ -1,4 +1,4 @@
-import { Component, Pipe } from '@angular/core';
+import { Component } from '@angular/core';
 import { Subscription, map } from 'rxjs';
 import { LikeHate } from 'src/app/models/like-hate';
 import { VoteService } from 'src/app/providers/vote.service';
@@ -21,7 +21,7 @@ export class CounterComponent {
   ngOnInit(): void {
     this.subscription = this.voteService.abonner
       .pipe(
-        map(vote => vote.likeHate)
+        map(vote => vote.vote)
       ).subscribe(likeHate => {
         likeHate == LikeHate.LIKE ? this.voteCounterPlus++ : this.voteCounterMoins++;
       })

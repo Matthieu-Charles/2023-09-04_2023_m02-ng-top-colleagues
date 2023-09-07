@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Colleague } from 'src/app/models/colleague';
 import { LikeHate } from 'src/app/models/like-hate';
@@ -21,7 +21,7 @@ export class ColleagueComponent {
   ngOninit(): void {
     this.subscription = this.voteService.abonner.subscribe(
       voteRetour => {
-        this.colleague.score = voteRetour.score;
+        this.colleague.score = voteRetour.colleague.score;
       }
     )
   }
