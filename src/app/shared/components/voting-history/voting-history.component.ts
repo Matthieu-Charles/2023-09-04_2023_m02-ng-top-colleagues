@@ -21,8 +21,6 @@ export class VotingHistoryComponent {
     this.subscription! = this.voteService.abonner
       .subscribe(vote => {
         this.voteArrayHistory.unshift(vote)
-        console.log(vote);
-
       })
   }
 

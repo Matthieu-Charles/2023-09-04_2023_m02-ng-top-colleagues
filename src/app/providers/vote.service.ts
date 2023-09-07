@@ -17,8 +17,6 @@ export class VoteService {
       .subscribe(
         (voteArray) => {
           for (let vote of voteArray) {
-            console.log(vote);
-
             this.action.next(vote)
           }
         }
