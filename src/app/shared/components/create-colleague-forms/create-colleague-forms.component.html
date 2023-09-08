@@ -5,10 +5,10 @@
   </div>
   <div class="mb-1 p-1">
     <label class="form-label">Pseudo</label>
-    <input type="text" class="form-control" [(ngModel)]="creationColleague.pseudo" name="pseudo" #pseudoLocal="ngModel"
-      required>
-    <p *ngIf="!pseudoLocal.valid && pseudoLocal.touched">
-      Ce champ est obligatoire
+    <input tcPseudoValidator type="text" class="form-control" [(ngModel)]="creationColleague.pseudo" name="pseudo"
+      #pseudoLocal="ngModel" required>
+    <p *ngIf="pseudoLocal.errors && pseudoLocal.dirty">
+      le pseudo {{ pseudoLocal.value }} existe déjà!
     </p>
   </div>
   <div class="mb-1 p-1">

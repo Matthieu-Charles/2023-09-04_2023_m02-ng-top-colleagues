@@ -29,7 +29,6 @@ export class CreateColleagueFormsComponent {
       .subscribe({
         next: (v) => console.log(v),
         error: (e) => {
-          console.error(e)
           this.errorReturned = e
         },
         complete: () => {
