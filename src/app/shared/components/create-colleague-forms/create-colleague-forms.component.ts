@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ColleagueService } from 'src/app/providers/colleague.service';
 import { CreationColleague } from './../../../models/creation-colleague';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'tc-create-colleague-forms',
@@ -21,7 +22,7 @@ export class CreateColleagueFormsComponent {
   constructor(private colleagueService: ColleagueService) {
   }
 
-  onSubmitForm() {
+  onSubmitForm(creationColleagueForm: NgForm) {
     console.log(this.creationColleague);
     this.colleagueService
       .publier(this.creationColleague)
@@ -32,13 +33,8 @@ export class CreateColleagueFormsComponent {
           this.errorReturned = e
         },
         complete: () => {
-          console.info('complete')
-          this.creationColleague = {
-            pseudo: "",
-            first: "",
-            last: "",
-            photo: ""
-          }
+          console.info('complete');
+          creationColleagueForm.reset();
         }
       })
   }

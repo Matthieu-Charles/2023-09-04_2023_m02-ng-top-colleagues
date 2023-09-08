@@ -1,8 +1,8 @@
-<form class="w-25 m-2 bg-primary" (ngSubmit)="onSubmitForm()" #creationColleagueForm="ngForm">
-  <!-- <div class="mb-3 p-3">
-    <label for="pseudo" class="form-label">Pseudo</label>
-    <input type="text" class="form-control" id="pseudo" name="pseudo" [(ngModel)]="pseudo" required minlength="3">
-  </div> -->
+<form tcFirstLastValidator class="w-25 m-2 bg-primary" (ngSubmit)="onSubmitForm(creationColleagueForm)"
+  #creationColleagueForm="ngForm">
+  <div *ngIf="creationColleagueForm.errors">
+    {{ creationColleagueForm.errors['firstLast'] | json }}
+  </div>
   <div class="mb-1 p-1">
     <label class="form-label">Pseudo</label>
     <input type="text" class="form-control" [(ngModel)]="creationColleague.pseudo" name="pseudo" #pseudoLocal="ngModel"
