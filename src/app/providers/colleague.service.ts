@@ -27,7 +27,6 @@ export class ColleagueService {
   }
 
   publier(creationColleague: CreationColleague) {
-    creationColleague.photo = "https://ucarecdn.com/c65e1532-fbdd-4c23-8f2b-e03f99af9759/-/crop/900x900/403,0/-/preview/-/progressive/yes/-/format/auto/";
     return this.http.post<Colleague>(
       'https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/colleagues',
       {

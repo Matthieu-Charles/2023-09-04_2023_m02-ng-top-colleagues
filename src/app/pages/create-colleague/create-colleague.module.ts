@@ -10,13 +10,13 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     CreateColleaguePage
   ],
-  exports: [
-    CreateColleaguePage
-  ],
   imports: [
     CommonModule,
     SharedModule,
     FormsModule
+  ],
+  exports: [
+    CreateColleaguePage
   ]
 })
 export class CreateColleagueModule { }

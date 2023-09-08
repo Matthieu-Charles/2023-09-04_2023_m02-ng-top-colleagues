@@ -1,0 +1,25 @@
+<form class="m-2 bg-warning w-50" [formGroup]="colleagueReactiveForm">
+
+  <label class="form-label mb-1 p-1">Pseudo : <input class="form-control" formControlName="pseudo"></label>
+
+  <div *ngIf="colleagueReactiveForm.get('pseudo')?.touched && colleagueReactiveForm.get('pseudo')?.invalid">
+    le pseudo {{ colleagueReactiveForm.get('pseudo')?.value }} existe déjà!</div>
+
+  <label class="form-label mb-1 p-1">Prénom : <input class="form-control" formControlName="first"></label>
+
+  <div *ngIf="colleagueReactiveForm.get('first')?.touched && colleagueReactiveForm.hasError('firstLast')">
+    nom et prénom doivent être différents</div>
+
+  <div *ngIf="colleagueReactiveForm.get('first')?.hasError('minlength')">
+    le prénom doit faire au moins deux lettres</div>
+
+  <label class="form-label mb-1 p-1">Nom : <input class="form-control" formControlName="last"></label>
+
+  <div *ngIf="colleagueReactiveForm.get('last')?.hasError('minlength')">
+    le nom doit faire au moins deux lettres</div>
+
+  <label class="form-label mb-1 p-1">Photo : <input class="form-control" formControlName="photo"></label>
+  <button class="btn btn-primary mb-1 p-1" (click)="onSubmit()" [disabled]="!colleagueReactiveForm.valid">Créer nouveau
+    collègue</button>
+
+</form>
