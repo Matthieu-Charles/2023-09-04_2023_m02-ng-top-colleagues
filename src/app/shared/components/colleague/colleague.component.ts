@@ -27,8 +27,6 @@ export class ColleagueComponent {
   }
 
   traiter(val: LikeHate) {
-    console.log("val dans colleagueComponent : ", val);
-
     this.voteService.ajouterUnNouveauVote({
       colleague: this.colleague,
       vote: val

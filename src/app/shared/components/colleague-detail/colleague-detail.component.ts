@@ -19,7 +19,6 @@ export class ColleagueDetailComponent {
     if (this.pseudo != null) {
       this.colleagueService.getColleagueByPseudo(this.pseudo)
         .subscribe(detailedColleague => {
-          console.log(detailedColleague);
           this.colleague = detailedColleague;
         });
     }

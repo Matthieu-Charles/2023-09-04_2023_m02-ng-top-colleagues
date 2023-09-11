@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ColleagueService } from 'src/app/providers/colleague.service';
 import { CreationColleague } from './../../../models/creation-colleague';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'tc-create-colleague-forms',
@@ -18,21 +19,19 @@ export class CreateColleagueFormsComponent {
 
   errorReturned: string = "";
 
-  constructor(private colleagueService: ColleagueService) {
+  constructor(private colleagueService: ColleagueService, private router: Router) {
   }
 
   onSubmitForm(creationColleagueForm: NgForm) {
-    console.log(this.creationColleague);
     this.colleagueService
       .publier(this.creationColleague)
       .subscribe({
-        next: (v) => console.log(v),
         error: (e) => {
           this.errorReturned = e
         },
         complete: () => {
-          console.info('complete');
           creationColleagueForm.reset();
+          this.router.navigate(['welcomePage']);
         }
       })
   }

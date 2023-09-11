@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl, ValidationErrors, AsyncValidator, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Observable, map, catchError, of } from 'rxjs';
 import { CreationColleague } from 'src/app/models/creation-colleague';
 import { ColleagueService } from 'src/app/providers/colleague.service';
@@ -21,7 +22,7 @@ export class CreateColleagueReactiveFormsComponent {
     photo: ""
   };
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private colleagueService: ColleagueService) {
+  constructor(private fb: FormBuilder, private http: HttpClient, private colleagueService: ColleagueService, private router: Router) {
     this.colleagueReactiveForm = this.fb.group({
       pseudo: ['', {
         validators: [Validators.required],
@@ -44,11 +45,9 @@ export class CreateColleagueReactiveFormsComponent {
     return this.http.get<string>('https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/colleagues/' + control.value)
       .pipe(
         map((res) => {
-          console.log("Dans map : ", res);
           return { testErreur: "pseudo pris!" };
         }),
         catchError((err) => {
-          console.log("Dans catchError : ", err);
           return of(null);
         })
       )
@@ -56,7 +55,6 @@ export class CreateColleagueReactiveFormsComponent {
 
 
   onSubmit() {
-    console.log(this.colleagueReactiveForm);
     this.creationColleague = {
       pseudo: this.colleagueReactiveForm.get('pseudo')?.value,
       first: this.colleagueReactiveForm.get('first')?.value,
@@ -66,13 +64,12 @@ export class CreateColleagueReactiveFormsComponent {
     this.colleagueService
       .publier(this.creationColleague)
       .subscribe({
-        next: (v) => console.log(v),
         error: (e) => {
           this.errorReturned = e
         },
         complete: () => {
-          console.info('complete');
           this.colleagueReactiveForm.reset();
+          this.router.navigate(['welcomePage']);
         }
       })
   }
