@@ -4,7 +4,6 @@ import { LikeHate } from 'src/app/models/like-hate';
 @Component({
   selector: 'tc-like-hate',
   templateUrl: './like-hate.component.html',
-  styleUrls: ['./like-hate.component.scss']
 })
 export class LikeHateComponent {
 
