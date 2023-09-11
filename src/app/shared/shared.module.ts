@@ -13,7 +13,6 @@ import { PseudoValidatorDirective } from './validators/pseudo-validator.directiv
 import { CreateColleagueReactiveFormsComponent } from './components/create-colleague-reactive-forms/create-colleague-reactive-forms.component';
 
 
-
 @NgModule({
   declarations: [
     LikeHateComponent,
@@ -25,7 +24,7 @@ import { CreateColleagueReactiveFormsComponent } from './components/create-colle
     CreateColleagueFormsComponent,
     FirstLastValidatorDirective,
     PseudoValidatorDirective,
-    CreateColleagueReactiveFormsComponent
+    CreateColleagueReactiveFormsComponent,
   ],
   imports: [
     CommonModule,
