@@ -31,7 +31,6 @@ export class ColleagueListComponent {
     )
 
     this.eventsSubscription = this.events.subscribe(() => {
-      console.log('clickage sur refresh list!');
       this.colleagueList.unsubscribe();
       this.colleagueList = this.colleagueService.listColleagues.subscribe(
         (colleagueServiceArray) => this.colleaguesArray = colleagueServiceArray
