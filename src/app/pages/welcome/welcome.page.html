@@ -1,8 +1,9 @@
 <div class="m-4">
-  <button class="btn btn-outline-primary my-3">Rafraîchir</button>
+  <tc-counter></tc-counter>
+  <button class="btn btn-outline-primary my-3" (click)="clickRefresh()">Rafraîchir</button>
   <div class="d-flex">
     <div class="w-75">
-      <tc-colleague-list></tc-colleague-list>
+      <tc-colleague-list [events]="eventSubject.asObservable()"></tc-colleague-list>
     </div>
     <div class="w-25">
       <tc-voting-history></tc-voting-history>

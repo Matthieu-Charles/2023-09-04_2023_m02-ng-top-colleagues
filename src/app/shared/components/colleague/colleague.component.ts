@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { Colleague } from 'src/app/models/colleague';
 import { LikeHate } from 'src/app/models/like-hate';
 import { VoteService } from 'src/app/providers/vote.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'tc-colleague',

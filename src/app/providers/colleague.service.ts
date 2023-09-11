@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Subject, tap } from 'rxjs';
 import { Colleague } from './../models/colleague';
 import { CreationColleague } from '../models/creation-colleague';
+import { DetailedColleague } from './../models/detailed-colleague';
 
 @Injectable({
   providedIn: 'root'
@@ -12,18 +13,10 @@ export class ColleagueService {
   private action = new Subject<Colleague>();
 
   constructor(private http: HttpClient) {
-
-    this.http.get<Colleague[]>('https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/colleagues')
-      .subscribe(
-        (colleagueArray) => {
-          for (let colleague of colleagueArray) this.action.next(colleague)
-        }
-      );
-
   }
 
-  get abonner() {
-    return this.action.asObservable();
+  get listColleagues() {
+    return this.http.get<Colleague[]>('https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/colleagues')
   }
 
   publier(creationColleague: CreationColleague) {
@@ -44,4 +37,12 @@ export class ColleagueService {
       tap((colleague) => this.action.next(colleague))
     )
   }
+
+  getColleagueByPseudo(pseudo: string) {
+    return this.http.get<DetailedColleague>(`https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/colleagues/` + pseudo)
+      .pipe(
+        tap((detailedColleague) => console.log(detailedColleague))
+      )
+  }
+
 }

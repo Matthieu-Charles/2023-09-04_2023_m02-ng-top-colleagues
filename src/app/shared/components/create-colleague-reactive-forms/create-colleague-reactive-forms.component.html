@@ -1,4 +1,4 @@
-<form class="m-2 bg-warning w-50" [formGroup]="colleagueReactiveForm">
+<form class="m-2 bg-warning col-md-4 m-auto" [formGroup]="colleagueReactiveForm">
 
   <label class="form-label mb-1 p-1">Pseudo : <input class="form-control" formControlName="pseudo"></label>
 
@@ -19,6 +19,7 @@
     le nom doit faire au moins deux lettres</div>
 
   <label class="form-label mb-1 p-1">Photo : <input class="form-control" formControlName="photo"></label>
+
   <button class="btn btn-primary mb-1 p-1" (click)="onSubmit()" [disabled]="!colleagueReactiveForm.valid">Créer nouveau
     collègue</button>
 

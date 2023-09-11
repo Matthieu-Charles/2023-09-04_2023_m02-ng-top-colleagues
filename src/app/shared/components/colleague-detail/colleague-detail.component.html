@@ -1,11 +1,10 @@
-<div class="card">
+<div class="card col-md-4 m-auto">
   <img src="{{colleague.photo}}" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">{{colleague.pseudo | uppercase}}</h5>
+    <p class="card-text">{{colleague.first}} {{colleague.last}}</p>
     <p class="card-text">{{colleague.score | score}}</p>
   </div>
   <div class="card-footer">
-    <tc-like-hate (likeOrHateEvent)="traiter($event)" [score]="colleague.score"></tc-like-hate>
-    <button class="btn btn-primary" routerLink="/colleagues/{{colleague.pseudo}}">Voir la fiche détaillée</button>
   </div>
 </div>
