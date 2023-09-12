@@ -41,8 +41,8 @@ export class LoginPage {
       .connecter(this.connectionObject)
       .subscribe({
         next: (rep) => {
-          console.log(rep);
           this.authReactiveForm.reset();
+          window.localStorage.setItem('jwt', rep.jwt);
           this.router.navigate(['welcomePage']);
         },
         error: (e) => {

@@ -12,16 +12,18 @@ export class ColleagueService {
 
   private action = new Subject<Colleague>();
 
+  private urlApi: string = "http://app-005f27d8-9033-48cc-ba69-b798464dee52.cleverapps.io/api/v2";
+
   constructor(private http: HttpClient) {
   }
 
   get listColleagues() {
-    return this.http.get<Colleague[]>('https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/colleagues')
+    return this.http.get<Colleague[]>(`${this.urlApi}/colleagues`)
   }
 
   publier(creationColleague: CreationColleague) {
     return this.http.post<Colleague>(
-      'https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/colleagues',
+      `${this.urlApi}/colleagues`,
       {
         pseudo: creationColleague.pseudo,
         first: creationColleague.first,
@@ -39,7 +41,7 @@ export class ColleagueService {
   }
 
   getColleagueByPseudo(pseudo: string) {
-    return this.http.get<DetailedColleague>(`https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/colleagues/` + pseudo)
+    return this.http.get<DetailedColleague>(`${this.urlApi}/colleagues/${pseudo}`)
   }
 
 }
