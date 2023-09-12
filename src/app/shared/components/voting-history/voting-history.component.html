@@ -2,12 +2,12 @@
   <div id="{{i}}" class="card m-2 mt-0" style="max-width: 540px">
     <div class="row g-0">
       <div class="col-md-4">
-        <img src="{{vote.colleague.photo}}" class="img-fluid rounded-start" alt="...">
+        <img src="{{vote.photo}}" class="img-fluid rounded-start" alt="...">
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h2 class="card-text">Nouveau vote pour {{vote.colleague.pseudo}}</h2>
-          <h3>{{vote.vote == 'LIKE'? 100 : -200}}</h3>
+          <h2 class="card-text">Nouveau vote pour {{vote.pseudo}}</h2>
+          <p>Son score est désormais de {{vote.score}} points!</p>
         </div>
       </div>
       <button class="btn btn-primary" (click)="supprimer(i)">Supprimer</button>

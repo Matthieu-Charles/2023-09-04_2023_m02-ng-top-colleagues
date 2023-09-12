@@ -22,8 +22,6 @@ export class ColleagueListComponent {
 
   }
 
-  @Output() likeOrHateEvent: EventEmitter<Vote> = new EventEmitter<Vote>;
-
   ngOnInit() {
 
     this.colleagueList = this.colleagueService.listColleagues.subscribe(

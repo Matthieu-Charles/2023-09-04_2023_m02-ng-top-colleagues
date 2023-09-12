@@ -20,7 +20,7 @@ export class CounterComponent {
   ngOnInit(): void {
     this.subscription = this.voteService.abonner
       .pipe(
-        map(vote => vote.vote)
+        map(vote => vote.likeHate)
       ).subscribe(likeHate => {
         likeHate == LikeHate.LIKE ? this.voteCounterPlus++ : this.voteCounterMoins++;
       })

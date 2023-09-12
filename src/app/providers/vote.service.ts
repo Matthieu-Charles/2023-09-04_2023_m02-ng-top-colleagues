@@ -9,7 +9,7 @@ import { VoteRetour } from '../models/vote-retour';
 })
 export class VoteService {
 
-  private action = new Subject<Vote>();
+  private action = new Subject<VoteRetour>();
   private urlApi: string = "https://app-005f27d8-9033-48cc-ba69-b798464dee52.cleverapps.io/api/v2";
 
   constructor(private http: HttpClient) {
@@ -31,9 +31,17 @@ export class VoteService {
           "Content-Type": "application/json"
         })
       }
-    ).pipe(
-      tap(() => this.action.next(vote))
     )
+    // .pipe(
+    //   tap((votetest) => {
+    //     console.log(votetest);
+    //     this.action.next(votetest)
+    //   })
+    // )
+  }
+
+  emettre(voteRetour: VoteRetour) {
+    this.action.next(voteRetour)
   }
 
 }

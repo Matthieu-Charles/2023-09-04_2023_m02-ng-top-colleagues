@@ -21,7 +21,7 @@ export class ColleagueComponent {
   ngOninit(): void {
     this.subscription = this.voteService.abonner.subscribe(
       voteRetour => {
-        this.colleague.score = voteRetour.colleague.score;
+        this.colleague.score = voteRetour.score;
       }
     )
   }
@@ -31,7 +31,10 @@ export class ColleagueComponent {
       colleague: this.colleague,
       vote: val
     }).subscribe(
-      voteRetour => this.colleague.score = voteRetour.score
+      voteRetour => {
+        this.colleague.score = voteRetour.score
+        this.voteService.emettre(voteRetour)
+      }
     );
   };
 

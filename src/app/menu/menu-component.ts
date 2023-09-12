@@ -11,7 +11,13 @@ export class MenuComponent {
 
   pseudo: string = "";
 
-  colleague!: DetailedColleague;
+  colleague: DetailedColleague = {
+    last: "",
+    first: "",
+    pseudo: "",
+    photo: "",
+    score: 0
+  };
 
   constructor(private colleagueService: ColleagueService, private router: Router) {
     const pseudo = window.localStorage.getItem('pseudo')
