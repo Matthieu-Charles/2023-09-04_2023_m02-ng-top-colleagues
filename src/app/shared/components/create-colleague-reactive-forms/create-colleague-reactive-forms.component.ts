@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, AbstractControl, ValidationErrors, AsyncValidator, NgForm } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable, map, catchError, of } from 'rxjs';
 import { CreationColleague } from 'src/app/models/creation-colleague';
@@ -13,6 +13,7 @@ import { ColleagueService } from 'src/app/providers/colleague.service';
 export class CreateColleagueReactiveFormsComponent {
 
   colleagueReactiveForm: FormGroup;
+
   errorReturned: string = "";
 
   creationColleague: CreationColleague = {

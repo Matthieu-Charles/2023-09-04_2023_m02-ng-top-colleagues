@@ -6,13 +6,15 @@ import { CreateColleaguePage } from './pages/create-colleague/create-colleague.p
 import { CreateColleagueReactivePage } from './pages/create-colleague-reactive/create-colleague-reactive.page';
 import { WelcomePage } from './pages/welcome/welcome.page';
 import { ColleagueDetailComponent } from './shared/components/colleague-detail/colleague-detail.component';
+import { LoginPage } from './pages/login/login.page';
 
 const routes: Routes = [
   { path: 'colleagues/:pseudo', component: ColleagueDetailComponent },
   { path: 'template', component: CreateColleaguePage },
   { path: 'reactive', component: CreateColleagueReactivePage },
   { path: 'welcomePage', component: WelcomePage },
-  { path: '', pathMatch: 'full', redirectTo: 'welcomePage' }
+  { path: 'login', component: LoginPage },
+  { path: '', pathMatch: 'full', redirectTo: 'login' }
 ]
 
 @NgModule({
