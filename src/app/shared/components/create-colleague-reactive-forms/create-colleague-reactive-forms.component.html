@@ -1,26 +1,32 @@
 <form class="m-2 bg-warning col-md-4 m-auto" [formGroup]="colleagueReactiveForm">
 
-  <label class="form-label mb-1 p-1">Pseudo : <input class="form-control" formControlName="pseudo"></label>
+  <div class=" m-2 p-1">
+    <label class="form-label">Pseudo : </label>
+    <input class="form-control" formControlName="pseudo">
 
-  <div *ngIf="colleagueReactiveForm.get('pseudo')?.touched && colleagueReactiveForm.get('pseudo')?.invalid">
-    le pseudo {{ colleagueReactiveForm.get('pseudo')?.value }} existe déjà!</div>
+    <div *ngIf="colleagueReactiveForm.get('pseudo')?.touched && colleagueReactiveForm.get('pseudo')?.invalid">
+      le pseudo {{ colleagueReactiveForm.get('pseudo')?.value }} existe déjà!</div>
 
-  <label class="form-label mb-1 p-1">Prénom : <input class="form-control" formControlName="first"></label>
+    <label class="form-label mb-1 p-1">Prénom : </label>
+    <input class="form-control" formControlName="first">
 
-  <div *ngIf="colleagueReactiveForm.get('first')?.touched && colleagueReactiveForm.hasError('firstLast')">
-    nom et prénom doivent être différents</div>
+    <div *ngIf="colleagueReactiveForm.get('first')?.touched && colleagueReactiveForm.hasError('firstLast')">
+      nom et prénom doivent être différents</div>
 
-  <div *ngIf="colleagueReactiveForm.get('first')?.hasError('minlength')">
-    le prénom doit faire au moins deux lettres</div>
+    <div *ngIf="colleagueReactiveForm.get('first')?.hasError('minlength')">
+      le prénom doit faire au moins deux lettres</div>
 
-  <label class="form-label mb-1 p-1">Nom : <input class="form-control" formControlName="last"></label>
+    <label class="form-label mb-1 p-1">Nom : </label>
+    <input class="form-control" formControlName="last">
 
-  <div *ngIf="colleagueReactiveForm.get('last')?.hasError('minlength')">
-    le nom doit faire au moins deux lettres</div>
+    <div *ngIf="colleagueReactiveForm.get('last')?.hasError('minlength')">
+      le nom doit faire au moins deux lettres</div>
 
-  <label class="form-label mb-1 p-1">Photo : <input class="form-control" formControlName="photo"></label>
+    <label class="form-label mb-1 p-1">Photo : </label>
+    <input class="form-control" formControlName="photo">
 
-  <button class="btn btn-primary mb-1 p-1" (click)="onSubmit()" [disabled]="!colleagueReactiveForm.valid">Créer nouveau
-    collègue</button>
-
+    <button class="btn btn-primary my-2 pt-1" (click)="onSubmit()" [disabled]="!colleagueReactiveForm.valid">Créer
+      nouveau
+      collègue</button>
+  </div>
 </form>

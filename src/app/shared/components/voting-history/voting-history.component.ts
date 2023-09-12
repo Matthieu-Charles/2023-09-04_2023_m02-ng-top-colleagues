@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { Subscription, map } from 'rxjs';
+import { Component } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Vote } from 'src/app/models/vote';
 import { VoteService } from 'src/app/providers/vote.service';
 
