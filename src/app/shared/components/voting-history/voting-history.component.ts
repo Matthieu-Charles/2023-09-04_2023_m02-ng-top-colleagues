@@ -22,6 +22,9 @@ export class VotingHistoryComponent {
       .subscribe(
         vote => {
           this.voteArrayHistory.unshift(vote)
+          if (this.voteArrayHistory.length > 5) {
+            this.voteArrayHistory.splice(5, 1);
+          }
         }
       )
   }
