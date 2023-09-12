@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ColleagueService } from '../providers/colleague.service';
 import { DetailedColleague } from '../models/detailed-colleague';
-import { windowWhen } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Component({
