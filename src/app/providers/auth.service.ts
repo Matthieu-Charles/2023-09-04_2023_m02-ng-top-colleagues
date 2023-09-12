@@ -12,7 +12,7 @@ export class AuthService {
 
   connecter(connexionObjet: ConnectionObject) {
     return this.http.post<any>(
-      'http://app-005f27d8-9033-48cc-ba69-b798464dee52.cleverapps.io/api/v2/login',
+      'https://app-005f27d8-9033-48cc-ba69-b798464dee52.cleverapps.io/api/v2/login',
       {
         pseudo: connexionObjet.pseudo,
         password: connexionObjet.motDePasse,

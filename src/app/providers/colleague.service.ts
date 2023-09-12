@@ -12,7 +12,7 @@ export class ColleagueService {
 
   private action = new Subject<Colleague>();
 
-  private urlApi: string = "http://app-005f27d8-9033-48cc-ba69-b798464dee52.cleverapps.io/api/v2";
+  private urlApi: string = "https://app-005f27d8-9033-48cc-ba69-b798464dee52.cleverapps.io/api/v2";
 
   constructor(private http: HttpClient) {
   }

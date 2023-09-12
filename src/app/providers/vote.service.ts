@@ -10,6 +10,7 @@ import { VoteRetour } from '../models/vote-retour';
 export class VoteService {
 
   private action = new Subject<Vote>();
+  private urlApi: string = "https://app-005f27d8-9033-48cc-ba69-b798464dee52.cleverapps.io/api/v2";
 
   constructor(private http: HttpClient) {
   }
@@ -20,7 +21,7 @@ export class VoteService {
 
   ajouterUnNouveauVote(vote: Vote) {
     return this.http.post<VoteRetour>(
-      'https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/votes',
+      `${this.urlApi}/votes`,
       {
         "pseudo": vote.colleague.pseudo,
         "like_hate": vote.vote
