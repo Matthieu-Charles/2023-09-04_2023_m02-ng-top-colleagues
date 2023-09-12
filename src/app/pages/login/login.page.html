@@ -5,7 +5,7 @@
     <input class="form-control" formControlName="pseudo">
 
     <label class="form-label mb-1 p-1">Mot de passe : </label>
-    <input class="form-control" formControlName="motDePasse">
+    <input class="form-control" type="password" formControlName="motDePasse">
 
     <button class="btn btn-primary my-2 p-1" (click)="onSubmit()" [disabled]="!authReactiveForm.valid">Se
       connecter</button>
