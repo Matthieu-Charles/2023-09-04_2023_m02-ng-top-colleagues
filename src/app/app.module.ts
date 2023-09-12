@@ -9,14 +9,14 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CreateColleagueModule } from './pages/create-colleague/create-colleague.module';
 import { CreateColleagueReactiveModule } from './pages/create-colleague-reactive/create-colleague-reactive.module';
 import { AppRoutingModule } from './app-routing.module';
-import { MenuComponentComponent } from './menu-component/menu-component.component';
+import { MenuComponent } from './menu/menu-component';
 import { LoginModule } from './pages/login/login.module';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponentComponent
+    MenuComponent
   ],
   imports: [
     BrowserModule,

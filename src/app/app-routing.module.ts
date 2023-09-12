@@ -7,19 +7,22 @@ import { WelcomePage } from './pages/welcome/welcome.page';
 import { ColleagueDetailComponent } from './shared/components/colleague-detail/colleague-detail.component';
 import { LoginPage } from './pages/login/login.page';
 import { authGuard } from './guard/auth.guard';
+import { MenuComponent } from './menu/menu-component';
 
 const routes: Routes = [
   { path: 'login', component: LoginPage },
+  { path: '', pathMatch: 'full', redirectTo: 'login' },
   {
     path: '',
     canActivate: [authGuard],
     children:
       [
+        { path: '', component: MenuComponent, outlet: 'secondary' },
         { path: 'colleagues/:pseudo', component: ColleagueDetailComponent },
         { path: 'template', component: CreateColleaguePage },
         { path: 'reactive', component: CreateColleagueReactivePage },
         { path: 'welcomePage', component: WelcomePage },
-        { path: '', pathMatch: 'full', redirectTo: 'welcomePage' }
+        { path: '', pathMatch: 'full', redirectTo: 'login' }
       ]
   }
 ]

@@ -42,6 +42,9 @@ export class LoginPage {
       .subscribe({
         next: (rep) => {
           this.authReactiveForm.reset();
+          console.log(atob(rep.jwt.split('.')[1]));
+          const pseudo = JSON.parse(atob(rep.jwt.split('.')[1])).sub;
+          window.localStorage.setItem('pseudo', pseudo);
           window.localStorage.setItem('jwt', rep.jwt);
           this.router.navigate(['welcomePage']);
         },

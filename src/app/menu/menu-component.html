@@ -17,7 +17,10 @@
           <a class="nav-link" routerLink="/reactive">Formulaire reactive</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/login">Se connecter</a>
+          <a class="nav-link" (click)="deconnexion()">Se déconnecter</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">{{ colleague.first }} {{ colleague.last }}</a>
         </li>
       </ul>
     </div>
