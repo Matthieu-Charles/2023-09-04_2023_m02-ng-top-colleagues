@@ -6,10 +6,19 @@
 /out-tsc
 /bazel-out
 
+/angular-tests-par-la-pratique/dist
+/angular-tests-par-la-pratique/tmp
+/angular-tests-par-la-pratique/out-tsc
+/angular-tests-par-la-pratique/bazel-out
+
 # Node
-/node_modules
+node_modules
 npm-debug.log
 yarn-error.log
+
+angular-tests-par-la-pratique/node_modules
+angular-tests-par-la-pratique/npm-debug.log
+angular-tests-par-la-pratique/yarn-error.log
 
 # IDEs and editors
 .idea/
@@ -28,6 +37,9 @@ yarn-error.log
 !.vscode/extensions.json
 .history/*
 
+angular-tests-par-la-pratique/.vscode/*
+angular-tests-par-la-pratique/.history/*
+
 # Miscellaneous
 /.angular/cache
 .sass-cache/
@@ -37,6 +49,17 @@ yarn-error.log
 testem.log
 /typings
 
+angular-tests-par-la-pratique/.angular/cache
+angular-tests-par-la-pratique/.sass-cache/
+angular-tests-par-la-pratique/connect.lock
+angular-tests-par-la-pratique/coverage
+angular-tests-par-la-pratique/libpeerconnection.log
+angular-tests-par-la-pratique/testem.log
+angular-tests-par-la-pratique/typings
+
 # System files
 .DS_Store
 Thumbs.db
+
+angular-tests-par-la-pratique/.DS_Store
+angular-tests-par-la-pratique/Thumbs.db
