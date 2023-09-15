@@ -1,5 +1,5 @@
-<form tcFirstLastValidator class="m-2 bg-primary col-md-4 m-auto" (ngSubmit)="onSubmitForm(creationColleagueForm)"
-  #creationColleagueForm="ngForm">
+<form tcFirstLastValidator class="col-md-4 shadow-lg bg-body-secondary rounded m-auto mt-5"
+  (ngSubmit)="onSubmitForm(creationColleagueForm)" #creationColleagueForm="ngForm">
   <div *ngIf="creationColleagueForm.errors">
     {{ creationColleagueForm.errors['firstLast'] | json }}
   </div>
