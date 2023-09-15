@@ -32,12 +32,6 @@ export class VoteService {
         })
       }
     )
-    // .pipe(
-    //   tap((votetest) => {
-    //     console.log(votetest);
-    //     this.action.next(votetest)
-    //   })
-    // )
   }
 
   emettre(voteRetour: VoteRetour) {
