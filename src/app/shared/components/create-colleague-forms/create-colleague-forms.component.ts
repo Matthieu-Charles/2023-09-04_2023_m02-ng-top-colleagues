@@ -14,7 +14,7 @@ export class CreateColleagueFormsComponent {
     pseudo: "",
     first: "",
     last: "",
-    photo: "https://ucarecdn.com/c65e1532-fbdd-4c23-8f2b-e03f99af9759/-/crop/900x900/403,0/-/preview/-/progressive/yes/-/format/auto/"
+    photo: ""
   };
 
   errorReturned: string = "";

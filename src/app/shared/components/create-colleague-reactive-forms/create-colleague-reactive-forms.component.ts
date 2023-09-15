@@ -60,7 +60,7 @@ export class CreateColleagueReactiveFormsComponent {
       pseudo: this.colleagueReactiveForm.get('pseudo')?.value,
       first: this.colleagueReactiveForm.get('first')?.value,
       last: this.colleagueReactiveForm.get('last')?.value,
-      photo: 'https://www.dentaire365.fr/wp-content/uploads/2022/06/Simplification-du-traitement-ledente-complet-iStock-497111709.jpg',
+      photo: this.colleagueReactiveForm.get('photo')?.value
     }
     this.colleagueService
       .publier(this.creationColleague)
