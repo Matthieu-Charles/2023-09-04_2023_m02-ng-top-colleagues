@@ -26,15 +26,11 @@ export class ColleagueComponent {
   }
 
   traiter(val: LikeHate) {
-    console.log("dans colleagueComponent : ", val);
-
     this.voteService.ajouterUnNouveauVote({
       colleague: this.colleague,
       vote: val
     }).subscribe(
       voteRetour => {
-        console.log("retour vote dans colleague component: ", voteRetour);
-
         this.colleague.score = voteRetour.score
         this.voteService.emettre(voteRetour, val)
       }

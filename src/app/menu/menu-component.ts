@@ -31,7 +31,6 @@ export class MenuComponent {
   }
 
   deconnexion() {
-    console.log("click déconnexion");
     window.localStorage.removeItem('jwt');
     window.localStorage.removeItem('pseudo');
     this.router.navigate(['login']);

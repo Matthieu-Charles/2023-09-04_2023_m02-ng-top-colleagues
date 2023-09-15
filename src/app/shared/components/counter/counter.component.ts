@@ -20,7 +20,6 @@ export class CounterComponent {
   ngOnInit(): void {
     this.subscription = this.voteService.abonner
       .subscribe(vote => {
-        console.log("dans counter component : ", vote);
         vote.likeHate == LikeHate.LIKE ? this.voteCounterPlus++ : this.voteCounterMoins++;
       })
   }
