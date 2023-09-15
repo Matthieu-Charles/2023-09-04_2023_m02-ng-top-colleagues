@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded">
   <img src="{{colleague.photo}}" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">{{colleague.pseudo | uppercase}}</h5>
@@ -6,6 +6,7 @@
   </div>
   <div class="card-footer">
     <tc-like-hate (likeOrHateEvent)="traiter($event)" [score]="colleague.score"></tc-like-hate>
-    <button class="btn btn-primary" routerLink="/colleagues/{{colleague.pseudo}}">Voir la fiche détaillée</button>
+    <button class="btn btn-outline-dark w-100 mb-3" routerLink="/colleagues/{{colleague.pseudo}}">Voir la fiche
+      détaillée</button>
   </div>
 </div>

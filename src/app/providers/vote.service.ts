@@ -3,6 +3,7 @@ import { Vote } from '../models/vote';
 import { Subject, tap } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { VoteRetour } from '../models/vote-retour';
+import { LikeHate } from '../models/like-hate';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +35,8 @@ export class VoteService {
     )
   }
 
-  emettre(voteRetour: VoteRetour) {
+  emettre(voteRetour: VoteRetour, likehate: LikeHate) {
+    voteRetour.likeHate = likehate;
     this.action.next(voteRetour)
   }
 

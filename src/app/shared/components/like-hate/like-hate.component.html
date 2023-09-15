@@ -1,2 +1,6 @@
-<button type="button" (click) ="likeOrHate('LIKE')" class="mx-2 btn btn-outline-success" [disabled]="score >= 1000? true : false">J'aime</button>
-<button type="button" (click) ="likeOrHate('HATE')" class="mx-2 btn btn-outline-danger" [disabled]="score <= -1000? true : false">Je déteste</button>
+<div class="row justify-content-evenly my-3">
+  <button type="button" (click)="likeOrHate('LIKE')" class="col-lg-5 btn btn-outline-success"
+    [disabled]="score >= 1000? true : false">J'aime</button>
+  <button type="button" (click)="likeOrHate('HATE')" class="col-lg-5 btn btn-outline-danger"
+    [disabled]="score <= -1000? true : false">Je déteste</button>
+</div>

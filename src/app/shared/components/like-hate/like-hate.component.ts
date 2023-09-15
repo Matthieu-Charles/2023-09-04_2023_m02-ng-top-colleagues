@@ -12,6 +12,8 @@ export class LikeHateComponent {
   @Output() likeOrHateEvent: EventEmitter<LikeHate> = new EventEmitter<LikeHate>;
 
   likeOrHate(valeur: string) {
+    console.log(valeur);
+
     valeur === "LIKE" ? this.likeOrHateEvent.emit(LikeHate.LIKE) : this.likeOrHateEvent.emit(LikeHate.HATE)
   }
 
